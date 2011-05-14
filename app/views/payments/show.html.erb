@@ -1,0 +1,27 @@
+<article>
+  <h1><%= t 'payment.title' %></h1>
+  <dl>
+    <% if @payment.digital? %>
+      <dt><%= t 'payment_types.digital_goods.title' %></dt>
+      <dd><%= t 'payment_types.digital_goods.description' %></dd>
+    <% else %>
+      <dt><%= t 'payment_types.real_goods.title' %></dt>
+      <dd><%= t 'payment_types.real_goods.description' %></dd>
+    <% end %>
+    <% if @payment.recurring? %>
+      <dt><%= t 'payment_types.recurring.title' %> (<%= link_to 'Unsubscribe', payment_path(@payment.identifier), method: :delete %>)</dt>
+      <dd><%= t 'payment_types.recurring.description' %></dd>
+      <dt>Profile ID</dt>
+      <dd><%= @payment.identifier %></dd>
+    <% else %>
+      <dt><%= t 'payment_types.instant.title' %></dt>
+      <dd><%= t 'payment_types.instant.description' %></dd>
+      <dt>Transaction ID</dt>
+      <dd><%= @payment.identifier %></dd>
+      <dt>Payer ID</dt>
+      <dd><%= @payment.payer_id %></dd>
+    <% end %>
+    <dt>Token</dt>
+    <dd><%= @payment.token %></dd>
+  </dl>
+</article>

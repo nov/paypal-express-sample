@@ -1,0 +1,13 @@
+<%= javascript_include_tag 'application' %>
+<script>
+  $(function () {
+    if (window.top.paypal_flows) {
+      $.each(window.top.paypal_flows, function (index, flow) {
+        if (flow.isOpen()) {
+          flow.closeFlow();
+        }
+      });
+    }
+    window.top.location = "<%= @redirect_uri %>";
+  });
+</script>
