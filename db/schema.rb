@@ -13,8 +13,10 @@
 ActiveRecord::Schema.define(:version => 20110514094452) do
 
   create_table "payments", :force => true do |t|
-    t.string   "payment_type"
-    t.string   "goods_type"
+    t.integer  "amount",     :default => 1
+    t.string   "token"
+    t.boolean  "recurring"
+    t.boolean  "digital"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

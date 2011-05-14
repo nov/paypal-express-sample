@@ -1,7 +1,9 @@
 class CreatePayments < ActiveRecord::Migration
   def change
     create_table :payments do |t|
-      t.string :payment_type, :goods_type
+      t.integer :amount, default: 1
+      t.string :token
+      t.boolean :recurring, :digital
       t.timestamps
     end
   end

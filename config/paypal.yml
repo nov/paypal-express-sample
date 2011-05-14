@@ -1,0 +1,14 @@
+development: &sandbox # change to your own
+  username: seller_1305369137_biz_api1.matake.jp
+  password: 76AGTA2X95VG6JXT
+  signature: AFcWxV21C7fd0v3bYYYRCpSSRl31AVkPG026jKL14U0N6oe1JMjikJbz
+  sandbox: true
+
+test:
+  <<: *sandbox
+
+production: &production
+  username: SET_YOUR_OWN
+  password: SET_YOUR_OWN
+  signature: SET_YOUR_OWN
+  sandbox: false

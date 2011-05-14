@@ -4,6 +4,8 @@
 en:
   title: PayPal Express Sample
   description: Learn how to use PayPal Express API in your Rails app.
+  payment:
+    description: PayPal Express Sample Payment
   payment_types:
     instant:
       title: Instant Payment

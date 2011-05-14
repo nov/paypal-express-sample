@@ -7,12 +7,12 @@
     <article>
       <h3><%= t 'payment_types.instant.title' %></h3>
       <p><%= t 'payment_types.instant.description' %></p>
-      <%= render 'payments/form', :payment => Payment.instant.real.build %>
+      <%= render 'payments/form', payment: Payment.new %>
     </article>
     <article>
       <h3><%= t 'payment_types.recurring.title' %></h3>
       <p><%= t 'payment_types.recurring.description' %></p>
-      <%= render 'payments/form', :payment => Payment.recurring.real.build %>
+      <%= render 'payments/form', payment: Payment.recurring.new %>
     </article>
   </div>
 </section>
@@ -24,12 +24,12 @@
     <article>
       <h3><%= t 'payment_types.instant.title' %></h3>
       <p><%= t 'payment_types.instant.description' %></p>
-      <%= render 'payments/form', :payment => Payment.instant.digital.build %>
+      <%= render 'payments/form', payment: Payment.digital.new %>
     </article>
     <article>
       <h3><%= t 'payment_types.recurring.title' %></h3>
       <p><%= t 'payment_types.recurring.description' %></p>
-      <%= render 'payments/form', :payment => Payment.recurring.digital.build %>
+      <%= render 'payments/form', payment: Payment.digital.recurring.new %>
     </article>
   </div>
 </section>
@@ -41,12 +41,12 @@
     <article>
       <h3><%= t 'payment_types.instant.title' %></h3>
       <p><%= t 'payment_types.instant.description' %></p>
-      <%= render 'payments/form', :payment => Payment.instant.digital.build %>
+      <%= render 'payments/form', payment: Payment.digital.new, popup: true %>
     </article>
     <article>
       <h3><%= t 'payment_types.recurring.title' %></h3>
       <p><%= t 'payment_types.recurring.description' %></p>
-      <%= render 'payments/form', :payment => Payment.recurring.digital.build %>
+      <%= render 'payments/form', payment: Payment.digital.recurring.new, popup: true %>
     </article>
   </div>
 </section>

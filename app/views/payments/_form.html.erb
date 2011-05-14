@@ -1,5 +1,7 @@
 <%= form_for payment do |f| %>
-  <%= f.hidden_field :goods_type %>
-  <%= f.hidden_field :payment_type %>
+  <%= hidden_field_tag :popup, local_assigns[:popup] %>
+  <%= f.hidden_field :amount %>
+  <%= f.hidden_field :digital %>
+  <%= f.hidden_field :recurring %>
   <%= f.submit 'Pay' %>
 <% end %>
