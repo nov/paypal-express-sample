@@ -36,10 +36,6 @@ GEM
     attr_required (0.0.3)
     bcrypt-ruby (2.1.4)
     builder (3.0.0)
-    coffee-script (2.2.0)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.1.0)
     erubis (2.7.0)
     execjs (0.3.4)
       multi_json (~> 1.0)
@@ -109,7 +105,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  coffee-script
   jquery-rails
   paypal-express
   rails (= 3.1.0.beta1)
