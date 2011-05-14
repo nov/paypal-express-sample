@@ -17,8 +17,7 @@ class PaymentsController < ApplicationController
 
   def destroy
     Payment.find_by_identifier!(params[:id]).unsubscribe!(client)
-    flash[:notice] = 'Recurring Profile Canceled'
-    redirect_to root_path
+    redirect_to root_path, notice: 'Recurring Profile Canceled'
   end
 
   def success
@@ -57,8 +56,7 @@ class PaymentsController < ApplicationController
   end
 
   def paypal_api_error(e)
-    flash[:error] = e.response.details.collect(&:long_message).join('<br />')
-    redirect_to root_url
+    redirect_to root_url, error: e.response.details.collect(&:long_message).join('<br />')
   end
 
 end
