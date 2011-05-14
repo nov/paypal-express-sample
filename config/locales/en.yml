@@ -1,0 +1,25 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  title: PayPal Express Sample
+  description: Learn how to use PayPal Express API in your Rails app.
+  payment_types:
+    instant:
+      title: Instant Payment
+      description: About Instant Payment
+    recurring:
+      title: Recurring Payment
+      description: About Recurring Payment
+    real_goods:
+      title: Real Goods
+      description: About Real Goods
+    digital_goods:
+      redirect:
+        title: Digital Goods (Redirect)
+        description: About Digital Goods
+      incontext:
+        title: Digital Goods (Popup)
+        description: About Digital Goods
+  top:
+    title: 'Goods & Payment Types'

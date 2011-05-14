@@ -1,0 +1,52 @@
+<h1><%= t 'top.title' %></h1>
+
+<section>
+  <h2><%= t 'payment_types.real_goods.title'%></h2>
+  <p><%= t 'payment_types.real_goods.description' %></p>
+  <div class="boxes">
+    <article>
+      <h3><%= t 'payment_types.instant.title' %></h3>
+      <p><%= t 'payment_types.instant.description' %></p>
+      <%= render 'payments/form', :payment => Payment.instant.real.build %>
+    </article>
+    <article>
+      <h3><%= t 'payment_types.recurring.title' %></h3>
+      <p><%= t 'payment_types.recurring.description' %></p>
+      <%= render 'payments/form', :payment => Payment.recurring.real.build %>
+    </article>
+  </div>
+</section>
+
+<section>
+  <h2><%= t 'payment_types.digital_goods.redirect.title'%></h2>
+  <p><%= t 'payment_types.digital_goods.redirect.description' %></p>
+  <div class="boxes">
+    <article>
+      <h3><%= t 'payment_types.instant.title' %></h3>
+      <p><%= t 'payment_types.instant.description' %></p>
+      <%= render 'payments/form', :payment => Payment.instant.digital.build %>
+    </article>
+    <article>
+      <h3><%= t 'payment_types.recurring.title' %></h3>
+      <p><%= t 'payment_types.recurring.description' %></p>
+      <%= render 'payments/form', :payment => Payment.recurring.digital.build %>
+    </article>
+  </div>
+</section>
+
+<section>
+  <h2><%= t 'payment_types.digital_goods.incontext.title'%></h2>
+  <p><%= t 'payment_types.digital_goods.incontext.description' %></p>
+  <div class="boxes">
+    <article>
+      <h3><%= t 'payment_types.instant.title' %></h3>
+      <p><%= t 'payment_types.instant.description' %></p>
+      <%= render 'payments/form', :payment => Payment.instant.digital.build %>
+    </article>
+    <article>
+      <h3><%= t 'payment_types.recurring.title' %></h3>
+      <p><%= t 'payment_types.recurring.description' %></p>
+      <%= render 'payments/form', :payment => Payment.recurring.digital.build %>
+    </article>
+  </div>
+</section>

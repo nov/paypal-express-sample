@@ -1,0 +1,50 @@
+/*
+ * FIXME: Introduce SCSS & Sprockets
+ *= require_self
+ *= require_tree . 
+*/
+
+body > header {
+  position: relative;
+}
+body > header h1 {
+  font-size: 26px;
+  font-weight: normal;
+  line-height: 33px;
+}
+body > header p {
+  color: #616161;
+}
+body > header .money {
+  opacity: 0.6;
+}
+body > header figure {
+  width: 100%;
+  height: 150px;
+  margin: 25px 0;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+body > footer {
+  color: #666;
+  font-size: 13px;
+  text-align: right;
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px solid #ccc;
+}
+body > footer a {
+  color: #666;
+  text-decoration: none;
+}
+body > footer a:hover {
+  color: #333;
+}
+body > footer ul {
+  list-style: none;
+}
+body > footer li {
+  display: inline-block;
+  padding-left: 15px;
+}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title><%= t 'title' %></title>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <%= stylesheet_link_tag 'application' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+</head>
+<body>
+  <%= render 'layouts/header' %>
+  <%= content_tag :section, class: params.values_at(:controller, :action).join(' ') do %>
+    <%= yield %>
+  <% end %>
+  <%= render 'layouts/footer' %>
+</body>
+</html>
