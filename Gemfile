@@ -9,11 +9,9 @@ gem 'sqlite3'
 
 # Asset template engines
 gem 'sass'
-# gem 'coffee-script'
-# gem 'uglifier'
-
+gem 'coffee-script'
+gem 'uglifier'
 gem 'jquery-rails'
-gem 'paypal-express', :require => 'paypal/express'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -23,6 +21,13 @@ gem 'paypal-express', :require => 'paypal/express'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+gem 'paypal-express'
+
+group :production do
+  gem 'therubyracer-heroku', '0.8.1.pre3'
+  gem 'pg', :require => 'pg'
+end
 
 group :test do
   # Pretty printed test output
