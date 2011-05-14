@@ -13,13 +13,19 @@ en:
       title: Instant Payment
       description: Pay money and complete the transaction.
       example: ex.) Buy a book
+      digital:
+        example: ex.) Buy an item in an online game
     recurring:
       title: Recurring Payment
       description: Pay fixed amount of money every month/week.
       example: ex.) Subscribe a magazine
+      digital:
+        example: ex.) Pay monthly fee for an online game
     real_goods:
       title: Real Goods
       description: Buy a real goods online. You gives your shipment address to the buyer.
     digital_goods:
       title: Digital Goods
       description: Buy a digital goods without disclosing your shipment address.
+      popup:
+        description: "Using popup UX, users won't leave your site. It's important especially for an online game."

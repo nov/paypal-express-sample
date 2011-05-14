@@ -8,7 +8,7 @@
       <article>
         <h3><%= t 'payment_types.instant.title' %></h3>
         <p><%= t 'payment_types.instant.description' %></p>
-        <p><%= t 'payment_types.recurring.example' %></p>
+        <p><%= t 'payment_types.instant.example' %></p>
         <%= render 'payments/form', payment: Payment.new %>
       </article>
       <article>
@@ -26,10 +26,14 @@
     <div class="boxes">
       <article>
         <h3><%= t 'payment_types.instant.title' %></h3>
+        <p><%= t 'payment_types.instant.description' %></p>
+        <p><%= t 'payment_types.instant.digital.example' %></p>
         <%= render 'payments/form', payment: Payment.digital.new %>
       </article>
       <article>
         <h3><%= t 'payment_types.recurring.title' %></h3>
+        <p><%= t 'payment_types.recurring.description' %></p>
+        <p><%= t 'payment_types.recurring.digital.example' %></p>
         <%= render 'payments/form', payment: Payment.digital.recurring.new %>
       </article>
     </div>
@@ -37,13 +41,19 @@
 
   <section class="popup">
     <h2><%= t 'payment_types.digital_goods.title'%> (Popup)</h2>
+    <p><%= t 'payment_types.digital_goods.description' %></p>
+    <p><%= t 'payment_types.digital_goods.popup.description' %></p>
     <div class="boxes">
       <article>
         <h3><%= t 'payment_types.instant.title' %></h3>
+        <p><%= t 'payment_types.instant.description' %></p>
+        <p><%= t 'payment_types.instant.digital.example' %></p>
         <%= render 'payments/form', payment: Payment.digital.popup.new %>
       </article>
       <article>
         <h3><%= t 'payment_types.recurring.title' %></h3>
+        <p><%= t 'payment_types.recurring.description' %></p>
+        <p><%= t 'payment_types.recurring.digital.example' %></p>
         <%= render 'payments/form', payment: Payment.digital.popup.recurring.new %>
       </article>
     </div>
