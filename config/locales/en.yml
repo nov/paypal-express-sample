@@ -5,7 +5,9 @@ en:
   title: PayPal Express Sample
   description: Learn how to use PayPal Express API in your Rails app.
   top:
-    title: 'Goods & Payment Types'
+    title: Try PayPal Payment Flows
+    pay_for_me: "You pay $1 for me on this site. It's great for me."
+    set_your_own: You can also download the source code and set your own merchant account (maybe sandbox account).
   payment:
     title: Payment Details
   payment_types:
