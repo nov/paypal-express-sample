@@ -37,8 +37,6 @@ GEM
     bcrypt-ruby (2.1.4)
     builder (3.0.0)
     erubis (2.7.0)
-    execjs (0.3.4)
-      multi_json (~> 1.0)
     hike (1.0.0)
     i18n (0.6.0beta1)
     jquery-rails (1.0.2)
@@ -97,9 +95,6 @@ GEM
     turn (0.8.2)
       ansi (>= 1.2.2)
     tzinfo (0.3.27)
-    uglifier (0.5.3)
-      execjs (>= 0.3.0)
-      multi_json (>= 1.0.2)
 
 PLATFORMS
   ruby
@@ -111,4 +106,3 @@ DEPENDENCIES
   sass
   sqlite3
   turn
-  uglifier

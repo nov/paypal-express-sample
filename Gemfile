@@ -10,7 +10,7 @@ gem 'sqlite3'
 # Asset template engines
 gem 'sass'
 # gem 'coffee-script'
-gem 'uglifier'
+# gem 'uglifier'
 
 gem 'jquery-rails'
 gem 'paypal-express', :require => 'paypal/express'
