@@ -10,8 +10,8 @@
 .top article {
   width: 44%;
   opacity: 0.6;
-  margin: 1%;
-  padding: 2%;
+  margin: 10px 1%;
+  padding: 10px 2%;
   border: 1px solid #ddd;
   border-radius: 6px;
 }
@@ -33,6 +33,7 @@
 
 @media only screen and (max-width: 767px) {
   .top article {
-    width: 94%;
+    width: 92%;
+    padding: 10px 4%;
   }
 }

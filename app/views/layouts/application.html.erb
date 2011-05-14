@@ -13,9 +13,12 @@
 </head>
 <body>
   <%= render 'layouts/header' %>
-  <%= content_tag :section, class: params.values_at(:controller, :action).join(' ') do %>
+  <%= content_tag :div, class: params.values_at(:main, :controller, :action).join(' ') do %>
     <%= yield %>
   <% end %>
   <%= render 'layouts/footer' %>
+  <% flash.each do |theme, message| %>
+    <%= javascript_tag "$.jGrowl(#{message.to_json}, {theme: #{theme.to_json}});" %>
+  <% end %>
 </body>
 </html>

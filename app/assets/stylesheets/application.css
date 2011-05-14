@@ -4,6 +4,20 @@
  *= require_tree . 
 */
 
+dl dt {
+  font-weight: bold;
+}
+dl dd {
+  margin-left: 1em;
+}
+
+div.jGrowl div.warn div.jGrowl-message {
+  color: orange;
+}
+div.jGrowl div.error div.jGrowl-message {
+  color: red;
+}
+
 body > header {
   position: relative;
 }
@@ -11,6 +25,13 @@ body > header h1 {
   font-size: 26px;
   font-weight: normal;
   line-height: 33px;
+}
+body > header a {
+  color: #333;
+  text-decoration: none;
+}
+body > header a:hover {
+  color: #666;
 }
 body > header p {
   color: #616161;
