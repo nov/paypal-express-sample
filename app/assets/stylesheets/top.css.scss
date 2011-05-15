@@ -4,48 +4,39 @@
   You can use Sass (SCSS) here: http://sass-lang.com/
 */
 
-.top section {
-  margin: 20px 0;
-}
-.top article {
-  opacity: 0.6;
-  width: 44%;
-  margin: 10px 1%;
-  padding: 10px 2%;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-}
-.top article:hover {
-  opacity: 1;
-  background: #ddd;
-  border: 1px solid #ccc;
-}
-.top article form {
-  text-align: right;
-}
-.top article input[type=submit] {
-  text-indent: -9999px;
-  width: 150px;
-  height: 33px;
-  border: none;
-  background: url(https://www.paypal.com/en_US/i/btn/btn_dg_pay_w_paypal.gif);
-}
-.top article input[type=submit]:active {
-  opacity: 0.8;
-}
-
-@media only screen and (max-width: 991px) {
-  .top article {
+.top {
+  section {
+    margin: 20px 0;
+  }
+  article {
+    width: 44%;
+    margin: 10px 1%;
+    padding: 10px 2%;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+  }
+  article form {
+    text-align: right;
+  }
+  article input[type=submit] {
+    opacity: 0.6;
+    text-indent: -9999px;
+    width: 150px;
+    height: 33px;
+    border: none;
+    background: url(https://www.paypal.com/en_US/i/btn/btn_dg_pay_w_paypal.gif);
+  }
+  article input[type=submit]:hover {
     opacity: 1;
   }
-  .top article:hover {
-    background: none;
-    border: 1px solid #ddd;
+  article input[type=submit]:active {
+    opacity: 0.8;
   }
-}
-@media only screen and (max-width: 767px) {
-  .top article {
-    width: 92%;
-    padding: 10px 4%;
+
+  @media only screen and (max-width: 767px) {
+    article {
+      width: 92%;
+      padding: 10px 4%;
+    }
   }
 }
