@@ -9,7 +9,12 @@
       <dd><%= t 'payment_types.real_goods.description' %></dd>
     <% end %>
     <% if @payment.recurring? %>
-      <dt><%= t 'payment_types.recurring.title' %> (<%= link_to 'Unsubscribe', payment_path(@payment.identifier), method: :delete %>)</dt>
+      <dt>
+        <%= t 'payment_types.recurring.title' %>
+        <span class="unsubscribe">
+          (<%= link_to 'Unsubscribe', payment_path(@payment.identifier), method: :delete %>)
+        </span>
+      </dt>
       <dd><%= t 'payment_types.recurring.description' %></dd>
       <dt>Profile ID</dt>
       <dd><%= @payment.identifier %></dd>

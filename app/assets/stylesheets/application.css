@@ -26,15 +26,15 @@ body > header h1 {
   font-weight: normal;
   line-height: 33px;
 }
+body > header p {
+  color: #616161;
+}
 body > header a {
   color: #333;
   text-decoration: none;
 }
 body > header a:hover {
   color: #666;
-}
-body > header p {
-  color: #616161;
 }
 body > header .money {
   opacity: 0.6;

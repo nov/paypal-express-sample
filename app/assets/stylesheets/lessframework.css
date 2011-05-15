@@ -67,15 +67,6 @@ body {
 	line-height: 18px;
 }
 
-/* Selection colours (easy to forget) */
-
-::selection 	 	{background: rgb(255,255,158);}
-::-moz-selection 	{background: rgb(255,255,158);}
-img::selection 		{background: transparent;}
-img::-moz-selection	{background: transparent;}
-body {-webkit-tap-highlight-color: rgb(255,255,158);}
-
-
 
 /*		Default Layout: 992px. 
 		Gutters: 24px.

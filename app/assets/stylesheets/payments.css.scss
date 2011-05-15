@@ -4,8 +4,20 @@
   You can use Sass (SCSS) here: http://sass-lang.com/
 */
 
-.payments dl {
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
+.payments {
+  dl {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+  }
+  .unsubscribe {
+    font-size: 12px;
+  }
+  .unsubscribe a {
+    color: #900;
+    text-decoration: none;
+  }
+  .unsubscribe a:hover {
+    color: #d00;
+  }
 }
