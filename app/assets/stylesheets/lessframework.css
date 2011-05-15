@@ -34,13 +34,11 @@ a img {border: 0;}
 .gigantic {
 	font-size: 110px;
 	line-height: 120px;
-	letter-spacing: -2px;
 }
 
 .huge, h1 {
-	font-size: 36px;
-	line-height: 42px;
-	letter-spacing: -1px;
+	font-size: 26px;
+	line-height: 34px;
 }
 
 .large, h2 {
