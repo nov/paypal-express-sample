@@ -12,9 +12,9 @@
     a {
       color: $dark_red;
       text-decoration: none;
-    }
-    a:hover {
-      color: $red;
+      &:hover {
+        color: $red;
+      }
     }
   }
 }

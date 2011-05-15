@@ -23,12 +23,12 @@ $article_padding: 2%;
       height: 33px;
       border: none;
       background: url(https://www.paypal.com/en_US/i/btn/btn_dg_pay_w_paypal.gif);
-    }
-    input[type=submit]:hover {
-      opacity: 1;
-    }
-    input[type=submit]:active {
-      opacity: 0.8;
+      &:hover {
+        opacity: 1;
+      }
+      &:active {
+        opacity: 0.8;
+      }
     }
   }
   .boxes article:first-child {
