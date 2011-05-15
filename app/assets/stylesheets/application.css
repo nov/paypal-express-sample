@@ -46,6 +46,11 @@ body > header figure {
   overflow: hidden;
   border-radius: 6px;
 }
+@media only screen and (max-width: 767px) {
+  body > header figure {
+    height: 60px;
+  }
+}
 
 body > footer {
   color: #666;
