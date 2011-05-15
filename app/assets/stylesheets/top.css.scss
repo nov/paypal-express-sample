@@ -4,14 +4,17 @@
   You can use Sass (SCSS) here: http://sass-lang.com/
 */
 
+$article_margin: 1%;
+$article_padding: 2%;
+
 .top {
   section {
     margin: 20px 0;
   }
   article {
-    width: 44%;
-    margin: 10px 1%;
-    padding: 10px 2%;
+    width: 50% - $article_margin * 2 - $article_padding * 2;
+    margin: 10px $article_margin;
+    padding: 10px $article_padding;
     border: 1px solid #ddd;
     border-radius: 6px;
   }
@@ -34,9 +37,10 @@
   }
 
   @media only screen and (max-width: 767px) {
+    $article_padding: $article_padding * 2;
     article {
-      width: 90%;
-      padding: 10px 4%;
+      width: 100% - $article_margin * 2 - $article_padding * 2;
+      padding: 10px $article_padding;
     }
     .popup {
       display: none;
