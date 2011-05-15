@@ -37,23 +37,23 @@ a img {border: 0;}
 }
 
 .huge, h1 {
-	font-size: 26px;
-	line-height: 34px;
+	font-size: 24px;
+	line-height: 32px;
 }
 
 .large, h2 {
-	font-size: 22px;
-	line-height: 30px;
-}
-
-.bigger, h3 {
 	font-size: 20px;
 	line-height: 28px;
 }
 
+.bigger, h3 {
+	font-size: 16px;
+	line-height: 24px;
+}
+
 .big, h4 {
-	font-size: 18px;
-	line-height: 26px;
+	font-size: 16px;
+	line-height: 24px;
 }
 
 body {
