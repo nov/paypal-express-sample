@@ -1,10 +1,6 @@
-/* 
-  Place all the styles related to the matching controller here.
-  They will automatically be included in application.css.
-  You can use Sass (SCSS) here: http://sass-lang.com/
-*/
+@import "common_variables";
 
-$article_margin: 1%;
+$article_margin: 2%;
 $article_padding: 2%;
 
 .top {
@@ -12,35 +8,41 @@ $article_padding: 2%;
     margin: 20px 0;
   }
   article {
-    width: 50% - $article_margin * 2 - $article_padding * 2;
-    margin: 10px $article_margin;
+    width: 50% - $article_margin / 2 - $article_padding * 2;
+    margin: 10px 0;
     padding: 10px $article_padding;
-    border: 1px solid #ddd;
-    border-radius: 6px;
+    border: 1px solid $light_gray;
+    border-radius: $default_radius;
+    form {
+      text-align: right;
+    }
+    input[type=submit] {
+      opacity: 0.6;
+      text-indent: -9999px;
+      width: 150px;
+      height: 33px;
+      border: none;
+      background: url(https://www.paypal.com/en_US/i/btn/btn_dg_pay_w_paypal.gif);
+    }
+    input[type=submit]:hover {
+      opacity: 1;
+    }
+    input[type=submit]:active {
+      opacity: 0.8;
+    }
   }
-  article form {
-    text-align: right;
-  }
-  article input[type=submit] {
-    opacity: 0.6;
-    text-indent: -9999px;
-    width: 150px;
-    height: 33px;
-    border: none;
-    background: url(https://www.paypal.com/en_US/i/btn/btn_dg_pay_w_paypal.gif);
-  }
-  article input[type=submit]:hover {
-    opacity: 1;
-  }
-  article input[type=submit]:active {
-    opacity: 0.8;
+  .boxes article:first-child {
+    margin-right: $article_margin;
   }
 
   @media only screen and (max-width: 767px) {
     $article_padding: $article_padding * 2;
     article {
-      width: 100% - $article_margin * 2 - $article_padding * 2;
+      width: 100% - $article_padding * 2;
       padding: 10px $article_padding;
+    }
+    .boxes article:first-child {
+      margin-right: 0;
     }
     .popup {
       display: none;

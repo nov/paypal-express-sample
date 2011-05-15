@@ -1,23 +1,20 @@
-/* 
-  Place all the styles related to the matching controller here.
-  They will automatically be included in application.css.
-  You can use Sass (SCSS) here: http://sass-lang.com/
-*/
+@import "common_variables";
 
 .payments {
   dl {
+    margin: 1% 0;
     padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
+    border: 1px solid $light_gray;
+    border-radius: $default_radius;
   }
   .unsubscribe {
     font-size: 12px;
-  }
-  .unsubscribe a {
-    color: #900;
-    text-decoration: none;
-  }
-  .unsubscribe a:hover {
-    color: #d00;
+    a {
+      color: $dark_red;
+      text-decoration: none;
+    }
+    a:hover {
+      color: $red;
+    }
   }
 }
