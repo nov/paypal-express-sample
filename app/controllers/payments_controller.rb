@@ -24,7 +24,7 @@ class PaymentsController < ApplicationController
     handle_callback do |payment|
       payment.complete!(client, params[:PayerID])
       flash[:notice] = 'Payment Transaction Completed'
-      @redirect_uri = payment_url(payment.identifier)
+      payment_url(payment.identifier)
     end
   end
 
@@ -32,7 +32,7 @@ class PaymentsController < ApplicationController
     handle_callback do |payment|
       payment.cancel!
       flash[:warn] = 'Payment Request Canceled'
-      @redirect_uri = root_url
+      root_url
     end
   end
 
@@ -47,12 +47,18 @@ class PaymentsController < ApplicationController
 
   def handle_callback
     payment = Payment.find_by_token! params[:token]
-    yield payment
+    redirect_uri = yield payment
     if payment.popup?
-      render :close_flow, layout: false
+      close_flow redirect_uri
     else
-      redirect_to @redirect_uri
+      redirect_to redirect_uri
     end
+  end
+
+  def close_flow(redirect_uri = root_url)
+    @redirect_uri = redirect_uri
+    flash.keep
+    render :close_flow, layout:false
   end
 
   def paypal_api_error(e)

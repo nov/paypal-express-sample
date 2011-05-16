@@ -1,13 +1,14 @@
-<%= javascript_include_tag 'application' %>
+<%= javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.js' %>
 <script>
   $(function () {
-    if (window.top.paypal_flows) {
-      $.each(window.top.paypal_flows, function (index, flow) {
+    var parent = window.top || window;
+    if (parent.paypal_flows) {
+      $.each(parent.paypal_flows, function (index, flow) {
         if (flow.isOpen()) {
           flow.closeFlow();
         }
       });
     }
-    window.top.location = "<%= @redirect_uri %>";
+    parent.location = "<%= @redirect_uri %>";
   });
 </script>
