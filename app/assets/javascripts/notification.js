@@ -1,3 +1,5 @@
+/* Cookie Flash Notification by @nov */
+
 $(function () {
   var parse = function (flash) {
     try {
