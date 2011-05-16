@@ -47,18 +47,12 @@ class PaymentsController < ApplicationController
 
   def handle_callback
     payment = Payment.find_by_token! params[:token]
-    redirect_uri = yield payment
+    @redirect_uri = yield payment
     if payment.popup?
-      close_flow redirect_uri
+      render :close_flow, layout: false
     else
-      redirect_to redirect_uri
+      redirect_to @redirect_uri
     end
-  end
-
-  def close_flow(redirect_uri = root_url)
-    @redirect_uri = redirect_uri
-    flash.keep
-    render :close_flow, layout:false
   end
 
   def paypal_api_error(e)
