@@ -6,6 +6,26 @@ class Payment < ActiveRecord::Base
   scope :digital,   where(digital: true)
   scope :popup,     where(popup: true)
 
+  def goods_type
+    digital? ? :digital : :real
+  end
+
+  def payment_type
+    recurring? ? :recurring : :instant
+  end
+
+  def ux_type
+    popup? ? :popup : :redirect
+  end
+
+  def details(client)
+    if recurring?
+      client.subscription(self.identifier)
+    else
+      client.details(self.token)
+    end
+  end
+
   attr_reader :redirect_uri, :popup_uri
   def setup!(client)
     response = client.setup(

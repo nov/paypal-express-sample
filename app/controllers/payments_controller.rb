@@ -3,6 +3,7 @@ class PaymentsController < ApplicationController
 
   def show
     @payment = Payment.find_by_identifier! params[:id]
+    @details = @payment.details(client)
   end
 
   def create

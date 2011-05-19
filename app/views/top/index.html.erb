@@ -1,80 +1,43 @@
 <section>
-  <h1><%= t 'top.title' %></h1>
-  <p><%= t 'top.pay_for_me' %></p>
-  <p><%= t 'top.set_your_own' %></p>
-
-  <section>
-    <h2><%= t 'payment_types.real_goods.title'%></h2>
-    <p><%= t 'payment_types.real_goods.description' %></p>
-    <div class="boxes">
-      <article>
-        <h3><%= t 'payment_types.instant.title' %></h3>
-        <p><%= t 'payment_types.instant.description' %></p>
-        <p><%= t 'payment_types.instant.example' %></p>
-        <%= render 'payments/form', payment: Payment.new %>
-      </article>
-      <article>
-        <h3><%= t 'payment_types.recurring.title' %></h3>
-        <p><%= t 'payment_types.recurring.description' %></p>
-        <p><%= t 'payment_types.recurring.example' %></p>
-        <%= render 'payments/form', payment: Payment.recurring.new %>
-      </article>
-    </div>
-  </section>
-
-  <section>
-    <h2><%= t 'payment_types.digital_goods.title'%></h2>
-    <p><%= t 'payment_types.digital_goods.description' %></p>
-    <div class="boxes">
-      <article>
-        <h3><%= t 'payment_types.instant.title' %></h3>
-        <p><%= t 'payment_types.instant.description' %></p>
-        <p><%= t 'payment_types.instant.digital.example' %></p>
-        <%= render 'payments/form', payment: Payment.digital.new %>
-      </article>
-      <article>
-        <h3><%= t 'payment_types.recurring.title' %></h3>
-        <p><%= t 'payment_types.recurring.description' %></p>
-        <p><%= t 'payment_types.recurring.digital.example' %></p>
-        <%= render 'payments/form', payment: Payment.digital.recurring.new %>
-      </article>
-    </div>
-  </section>
-
-  <section class="popup">
-    <h2><%= t 'payment_types.digital_goods.title'%> (Popup)</h2>
-    <p><%= t 'payment_types.digital_goods.description' %></p>
-    <p><%= t 'payment_types.digital_goods.popup.description' %></p>
-    <div class="boxes">
-      <article>
-        <h3><%= t 'payment_types.instant.title' %></h3>
-        <p><%= t 'payment_types.instant.description' %></p>
-        <p><%= t 'payment_types.instant.digital.example' %></p>
-        <%= render 'payments/form', payment: Payment.digital.popup.new %>
-      </article>
-      <article>
-        <h3><%= t 'payment_types.recurring.title' %></h3>
-        <p><%= t 'payment_types.recurring.description' %></p>
-        <p><%= t 'payment_types.recurring.digital.example' %></p>
-        <%= render 'payments/form', payment: Payment.digital.popup.recurring.new %>
-      </article>
-    </div>
-  </section>
-
+  <h1><%=t 'top.title' %></h1>
+  <p><%=t 'top.pay_for_me' %></p>
+  <p><%=t 'top.set_your_own' %></p>
+  <% [
+    [Payment.new,                 Payment.recurring.build              ],
+    [Payment.digital.build,       Payment.digital.recurring.build      ],
+    [Payment.digital.popup.build, Payment.digital.popup.recurring.build]
+  ].each do |payments| %>
+    <% payment = payments.first %>
+    <%= content_tag :section, :class => payment.ux_type do %>
+      <h2>
+        <%=t "payments.#{payment.goods_type}.title" %>
+        <% if payment.popup? %>(Popup)<% end %>
+      </h2>
+      <p><%=t "payments.#{payment.goods_type}.description" %></p>
+      <% if payment.popup? %>
+        <p><%=t "payments.popup.description" %></p>
+      <% end %>
+      <div class="boxes">
+        <%= render payments %>
+      </div>
+    <% end %>
+  <% end %>
 </section>
 
-<script src="https://www.paypalobjects.com/js/external/dg.js"></script>
-<script>
-  $(function () {
-    var popup_forms = $('.popup form');
-    $.each(popup_forms, function (index, form) {
-      var sandbox = <%= Paypal.sandbox?.to_json %>;
-      var submit_id = 'paypayl_submit_' + index;
-      $('input[type=submit]', form).attr({id: submit_id});
-      flow_config = {trigger: submit_id};
-      if (sandbox) flow_config.stage = sandbox;
-      window.paypal_flows = [];
-      window.paypal_flows.push(new PAYPAL.apps.DGFlow(flow_config));
+<%= content_for :bottom do %>
+  <script src="https://www.paypalobjects.com/js/external/dg.js"></script>
+  <script>
+    $(function () {
+      var popup_forms = $('.popup form');
+      $.each(popup_forms, function (index, form) {
+        var sandbox = <%= Paypal.sandbox?.to_json %>;
+        var submit_id = 'paypayl_submit_' + index;
+        $('input[type=submit]', form).attr({id: submit_id});
+        flow_config = {trigger: submit_id};
+        if (sandbox) flow_config.stage = sandbox;
+        window.paypal_flows = [];
+        window.paypal_flows.push(new PAYPAL.apps.DGFlow(flow_config));
+      });
     });
-  });
-</script>
+  </script>
+<% end %>

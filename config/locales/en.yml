@@ -8,26 +8,26 @@ en:
     title: How to Learn?
     pay_for_me: "You can pay $1 for me on this site. It's great for me."
     set_your_own: You can also download the source code and set your own merchant account (maybe sandbox account).
-  payment:
-    title: Payment Details
-  payment_types:
+  payments:
     instant:
       title: Instant Payment
       description: Pay money and complete the transaction.
-      example: ex.) Buy a book
+      real:
+        example: ex.) Buy a book
       digital:
         example: ex.) Buy online game items
     recurring:
       title: Recurring Payment
       description: Pay fixed amount of money every month/week.
-      example: ex.) Subscribe a magazine
+      real:
+        example: ex.) Subscribe a magazine
       digital:
         example: ex.) Pay online membership fee
-    real_goods:
+    real:
       title: Real Goods
       description: Buy a real goods online. You gives your shipment address to the buyer.
-    digital_goods:
+    digital:
       title: Digital Goods
       description: Buy a digital goods without disclosing your shipment address.
-      popup:
-        description: "Popup UX would be important for online games which don't want to let users leave their site."
+    popup:
+      description: "Popup UX would be important for online games which don't want to let users leave their site."

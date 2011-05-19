@@ -1,32 +1,11 @@
 <article>
-  <h1><%= t 'payment.title' %></h1>
-  <dl>
-    <% if @payment.digital? %>
-      <dt><%= t 'payment_types.digital_goods.title' %></dt>
-      <dd><%= t 'payment_types.digital_goods.description' %></dd>
-    <% else %>
-      <dt><%= t 'payment_types.real_goods.title' %></dt>
-      <dd><%= t 'payment_types.real_goods.description' %></dd>
-    <% end %>
+  <h1>
+    <%=t @payment.payment_type %> Payment for <%=t @payment.goods_type %> Goods
     <% if @payment.recurring? %>
-      <dt>
-        <%= t 'payment_types.recurring.title' %>
-        <span class="unsubscribe">
-          (<%= link_to 'Unsubscribe', payment_path(@payment.identifier), method: :delete %>)
-        </span>
-      </dt>
-      <dd><%= t 'payment_types.recurring.description' %></dd>
-      <dt>Profile ID</dt>
-      <dd><%= @payment.identifier %></dd>
-    <% else %>
-      <dt><%= t 'payment_types.instant.title' %></dt>
-      <dd><%= t 'payment_types.instant.description' %></dd>
-      <dt>Transaction ID</dt>
-      <dd><%= @payment.identifier %></dd>
-      <dt>Payer ID</dt>
-      <dd><%= @payment.payer_id %></dd>
+      <span class="unsubscribe">
+        (<%= link_to t('unsubscribe'), payment_path(@payment.identifier), method: :delete %>)
+      </span>
     <% end %>
-    <dt>Token</dt>
-    <dd><%= @payment.token %></dd>
-  </dl>
+  </h1>
+  <pre><%= JSON.pretty_generate JSON.parse(@details.to_json) %></pre>
 </article>

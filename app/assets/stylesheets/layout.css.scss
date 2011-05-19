@@ -1,24 +1,5 @@
 @import "common_variables";
 
-dl {
-  dt {
-    font-weight: bold;
-  }
-  dd {
-    margin-left: 1em;
-  }
-}
-
-.boxes {
-  display: -webkit-box;
-}
-
-@media only screen and (max-width: 767px) {
-  .boxes {
-    display: block;
-  }
-}
-
 div.jGrowl {
   div.notice div.jGrowl-message {
     color: $green;

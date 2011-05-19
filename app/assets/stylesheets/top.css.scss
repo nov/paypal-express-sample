@@ -1,5 +1,9 @@
 @import "common_variables";
 
+@function box_width($num_boxes) {
+  @return 100% / $num_boxes - $article_margin / 2 - $article_padding * 2;
+}
+
 $article_margin: 2%;
 $article_padding: 2%;
 
@@ -7,42 +11,49 @@ $article_padding: 2%;
   section {
     margin: 20px 0;
   }
-  article {
-    width: 50% - $article_margin / 2 - $article_padding * 2;
-    margin: 10px 0;
-    padding: 10px $article_padding;
-    border: 1px solid $light_gray;
-    border-radius: $default_radius;
-    form {
-      text-align: right;
-    }
-    input[type=submit] {
-      opacity: 0.6;
-      text-indent: -9999px;
-      width: 150px;
-      height: 33px;
-      border: none;
-      background: url(https://www.paypal.com/en_US/i/btn/btn_dg_pay_w_paypal.gif);
-      &:hover {
-        opacity: 1;
+  .boxes {
+    display: -webkit-box;
+    article {
+      width: box_width(2);
+      margin: 10px 0;
+      padding: 10px $article_padding;
+      border: 1px solid $light_gray;
+      border-radius: $default_radius;
+      &:not(:first-child) {
+        margin-left: $article_margin;
       }
-      &:active {
-        opacity: 0.8;
+      form {
+        text-align: right;
+      }
+      input[type=submit] {
+        opacity: 0.6;
+        text-indent: -9999px;
+        width: 150px;
+        height: 33px;
+        border: none;
+        background: url(https://www.paypal.com/en_US/i/btn/btn_dg_pay_w_paypal.gif);
+        &:hover {
+          opacity: 1;
+        }
+        &:active {
+          opacity: 0.8;
+        }
       }
     }
-  }
-  .boxes article:first-child {
-    margin-right: $article_margin;
   }
 
   @media only screen and (max-width: 767px) {
+    $article_margin: 0;
     $article_padding: $article_padding * 2;
-    article {
-      width: 100% - $article_padding * 2;
-      padding: 10px $article_padding;
-    }
-    .boxes article:first-child {
-      margin-right: 0;
+    .boxes {
+      display: block;
+      article {
+        width: box_width(1);
+        padding: 10px $article_padding;
+        &:not(:first-child) {
+          margin-left: 0;
+        }
+      }
     }
     .popup {
       display: none;

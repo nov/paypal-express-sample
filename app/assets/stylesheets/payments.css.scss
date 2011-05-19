@@ -1,14 +1,18 @@
 @import "common_variables";
 
+$padding: 15px;
+
 .payments {
-  dl {
+  pre {
+    overflow-y: auto;
     margin: 1% 0;
-    padding: 15px;
+    padding: $padding;
     border: 1px solid $light_gray;
     border-radius: $default_radius;
+    background: transparentize($white, 0.8);
   }
   .unsubscribe {
-    font-size: 12px;
+    font-size: .6em;
     a {
       color: $dark_red;
       text-decoration: none;
