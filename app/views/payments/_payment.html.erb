@@ -1,0 +1,6 @@
+<article>
+  <h3><%=t "payments.#{payment.payment_type}.title" %></h3>
+  <p><%=t "payments.#{payment.payment_type}.description" %></p>
+  <p><%=t "payments.#{payment.payment_type}.#{payment.goods_type}.example" %></p>
+  <%= render 'payments/form', payment: payment %>
+</article>
