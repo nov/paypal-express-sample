@@ -1,12 +1,10 @@
 @import "common_variables";
 
-$padding: 15px;
-
 .payments {
   pre {
     overflow-y: auto;
     margin: 1% 0;
-    padding: $padding;
+    padding: 15px;
     border: 1px solid $light_gray;
     border-radius: $default_radius;
     background: transparentize($white, 0.8);
