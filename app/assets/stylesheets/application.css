@@ -1,5 +1,7 @@
 /*
  * FIXME: Introduce SCSS & Sprockets
+ *= require jquery.growl
+ *= require lessframework
  *= require_self
  *= require_tree . 
 */
