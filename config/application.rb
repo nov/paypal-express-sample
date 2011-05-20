@@ -50,9 +50,5 @@ module PaypalExpressSample
 
     # Enable the asset pipeline
     config.assets.enabled = true
-    config.assets.precompile = %w(
-      application.js
-      application.css
-    )
   end
 end
