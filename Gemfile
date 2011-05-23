@@ -1,5 +1,8 @@
 source 'http://rubygems.org'
 
+gem 'rake', '0.8.7'
+gem 'sprockets', '2.0.0.beta.2'
+
 gem 'rails', '3.1.0.beta1'
 
 # Bundle edge Rails instead:

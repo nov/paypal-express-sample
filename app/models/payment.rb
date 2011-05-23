@@ -18,7 +18,7 @@ class Payment < ActiveRecord::Base
     popup? ? :popup : :redirect
   end
 
-  def details(client)
+  def details
     if recurring?
       client.subscription(self.identifier)
     else
@@ -27,9 +27,11 @@ class Payment < ActiveRecord::Base
   end
 
   attr_reader :redirect_uri, :popup_uri
-  def setup!(client)
+  def setup!(return_url, cancel_url)
     response = client.setup(
       payment_request,
+      return_url,
+      cancel_url,
       pay_on_paypal: true,
       no_shipping: self.digital?
     )
@@ -46,7 +48,7 @@ class Payment < ActiveRecord::Base
     self
   end
 
-  def complete!(client, payer_id = nil)
+  def complete!(payer_id = nil)
     if self.recurring?
       response = client.subscribe!(self.token, recurring_request)
       self.identifier = response.recurring.identifier
@@ -60,12 +62,16 @@ class Payment < ActiveRecord::Base
     self
   end
 
-  def unsubscribe!(client)
+  def unsubscribe!
     client.renew!(self.identifier, :Cancel)
     self.cancel!
   end
 
   private
+
+  def client
+    Paypal::Express::Request.new PAYPAL_CONFIG
+  end
 
   DESCRIPTION = {
     item: 'PayPal Express Sample Item',

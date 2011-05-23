@@ -3,12 +3,15 @@ class PaymentsController < ApplicationController
 
   def show
     @payment = Payment.find_by_identifier! params[:id]
-    @details = @payment.details(client)
+    @details = @payment.details
   end
 
   def create
     payment = Payment.create! params[:payment]
-    payment.setup!(client)
+    payment.setup!(
+      success_payments_url,
+      cancel_payments_url
+    )
     if payment.popup?
       redirect_to payment.popup_uri
     else
@@ -17,13 +20,13 @@ class PaymentsController < ApplicationController
   end
 
   def destroy
-    Payment.find_by_identifier!(params[:id]).unsubscribe!(client)
+    Payment.find_by_identifier!(params[:id]).unsubscribe!
     redirect_to root_path, notice: 'Recurring Profile Canceled'
   end
 
   def success
     handle_callback do |payment|
-      payment.complete!(client, params[:PayerID])
+      payment.complete!(params[:PayerID])
       flash[:notice] = 'Payment Transaction Completed'
       payment_url(payment.identifier)
     end
@@ -38,13 +41,6 @@ class PaymentsController < ApplicationController
   end
 
   private
-
-  def client
-    Paypal::Express::Request.new PAYPAL_CONFIG.merge(
-      return_url: success_payments_url,
-      cancel_url: cancel_payments_url
-    )
-  end
 
   def handle_callback
     payment = Payment.find_by_token! params[:token]
