@@ -7,5 +7,5 @@
       </span>
     <% end %>
   </h1>
-  <pre><%= JSON.pretty_generate JSON.parse(@details.to_json) %></pre>
+  <pre><%= JSON.pretty_generate JSON.parse(@payment.details.to_json) %></pre>
 </article>

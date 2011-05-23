@@ -2,11 +2,7 @@
   <h1><%=t 'top.title' %></h1>
   <p><%=t 'top.pay_for_me' %></p>
   <p><%=t 'top.set_your_own' %></p>
-  <% [
-    [Payment.new,                 Payment.recurring.build              ],
-    [Payment.digital.build,       Payment.digital.recurring.build      ],
-    [Payment.digital.popup.build, Payment.digital.popup.recurring.build]
-  ].each do |payments| %>
+  <% @grouped_payments.each do |payments| %>
     <% payment = payments.first %>
     <%= content_tag :section, :class => payment.ux_type do %>
       <h2>
